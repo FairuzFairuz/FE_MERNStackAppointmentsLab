@@ -8,6 +8,11 @@ const UpdateAppointment = ({
 }) => {
   const [formData, setFormData] = useState({
     title: "",
+    type: "",
+    purpose: "",
+    company: "",
+    person: "",
+    address: "",
     date: "",
     time: "",
     comments: "",
@@ -51,6 +56,34 @@ const UpdateAppointment = ({
         name="time"
         type="time"
         value={formData.time}
+        onChange={handleChange}
+        required
+      />
+      <input
+        name="purpose"
+        type="purpose"
+        value={formData.purpose}
+        onChange={handleChange}
+        required
+      />
+      <input
+        name="company"
+        type="company"
+        value={formData.company}
+        onChange={handleChange}
+        required
+      />
+      <input
+        name="person"
+        type="person"
+        value={formData.person}
+        onChange={handleChange}
+        required
+      />
+      <input
+        name="address"
+        type="address"
+        value={formData.address}
         onChange={handleChange}
         required
       />

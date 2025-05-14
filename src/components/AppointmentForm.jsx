@@ -4,7 +4,7 @@ import { addAppointment } from "../api.js";
 const AppointmentForm = ({ refreshAppointments }) => {
   const [formData, setFormData] = useState({
     title: "",
-    type: "Interview",
+    type: "",
     purpose: "",
     company: "",
     person: "",
@@ -34,7 +34,7 @@ const AppointmentForm = ({ refreshAppointments }) => {
       setFormData({
         // Clear form after submission
         title: "",
-        type: "Interview",
+        type: "",
         purpose: "",
         company: "",
         person: "",
@@ -50,75 +50,73 @@ const AppointmentForm = ({ refreshAppointments }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {error && <p style={{ color: "red" }}>{error}</p>}{" "}
-      <input
-        name="title"
-        placeholder="Title"
-        value={formData.title}
-        onChange={handleChange}
-        required
-      />
-      <select
-        name="type"
-        value={formData.type}
-        onChange={handleChange}
-        required
-      >
-        <option>Interview</option>
-        <option>Medical</option>
-        <option>Dental</option>
-        <option>Lunch</option>
-        <option>Dinner</option>
-        <option>Other</option>
-      </select>
-      <input
-        name="purpose"
-        placeholder="Purpose"
-        value={formData.purpose}
-        onChange={handleChange}
-        required
-      />
-      <input
-        name="company"
-        placeholder="Company"
-        value={formData.company}
-        onChange={handleChange}
-      />
-      <input
-        name="person"
-        placeholder="Person"
-        value={formData.person}
-        onChange={handleChange}
-      />
-      <input
-        name="address"
-        placeholder="Address"
-        value={formData.address}
-        onChange={handleChange}
-      />
-      <input
-        name="date"
-        type="date"
-        value={formData.date}
-        onChange={handleChange}
-        required
-      />
-      <input
-        name="time"
-        type="time"
-        value={formData.time}
-        onChange={handleChange}
-        required
-      />
-      <textarea
-        name="comments"
-        placeholder="Comments"
-        value={formData.comments}
-        onChange={handleChange}
-      />
-      <button type="submit">Add Appointment</button>
-    </form>
+    <div className="form-container">
+      <h2>Add Appointment</h2>
+
+      <form onSubmit={handleSubmit}>
+        {error && <p style={{ color: "red" }}>{error}</p>}{" "}
+        <input
+          name="title"
+          placeholder="Title"
+          value={formData.title}
+          onChange={handleChange}
+          required
+        />
+        <input
+          name="type"
+          placeholder="Type"
+          value={formData.type}
+          onChange={handleChange}
+          required
+        />
+        <input
+          name="purpose"
+          placeholder="Purpose"
+          value={formData.purpose}
+          onChange={handleChange}
+          required
+        />
+        <input
+          name="company"
+          placeholder="Company"
+          value={formData.company}
+          onChange={handleChange}
+        />
+        <input
+          name="person"
+          placeholder="Person"
+          value={formData.person}
+          onChange={handleChange}
+        />
+        <input
+          name="address"
+          placeholder="Address"
+          value={formData.address}
+          onChange={handleChange}
+        />
+        <input
+          name="date"
+          type="date"
+          value={formData.date}
+          onChange={handleChange}
+          required
+        />
+        <input
+          name="time"
+          type="time"
+          value={formData.time}
+          onChange={handleChange}
+          required
+        />
+        <textarea
+          name="comments"
+          placeholder="Comments"
+          value={formData.comments}
+          onChange={handleChange}
+        />
+        <button type="submit">Add Appointment</button>
+      </form>
+    </div>
   );
 };
 
